@@ -13,8 +13,7 @@ for key in data:
         print("Set {0}:".format(key))
         m = re.search('^[0-9]+$', input())
         if(m is not None):
-            next = int(m.group(0))
-            data[key] = next
+            data[key] = int(m.group(0))
 
 # Clear input
 os.system('cls')

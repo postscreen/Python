@@ -13,8 +13,7 @@ while path == 0:
     print("Set path of the cicle [1-4]:")
     m = re.search('^[1-4]$', input())
     if(m is not None):
-        next = int(m.group(0))
-        path = next
+        path = int(m.group(0))
 
 # Clear input
 os.system('cls')

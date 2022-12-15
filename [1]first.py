@@ -2,24 +2,24 @@
 # обозначающую день недели, и проверяет, является ли этот день выходным
 
 import os
+import re
+
 os.system('cls')
 
-N = 0
+N = ""
 
-while True:
+# Interface
+while N == "":
+    print("Set numeric between 1 and 7:".format(N))
+    m = re.search('^[0-9]+$', input())
+    if(m is not None):
+        N = int(m.group(0))
 
-    # Interface
-    print("Set numeric between 1 and 7:")
-    N = int(input())
+# ... 
+os.system('cls')
 
-    # Get string state
-    if N in [6,7]:
-        E = "Yes"
-    else:
-        E = "No"
-
-    print('{0} -> {1}'.format(N, E))
-
-    # do while emulation 
-    if N not in [1,7]:
-        break
+# do while emulation 
+if N in [6,7]:
+    print('{0} is weekend'.format(N))
+else:
+    print('{0} isn\'t weekend'.format(N))

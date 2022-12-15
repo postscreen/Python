@@ -5,16 +5,19 @@ import os
 import re
 
 os.system('cls')
-data = { 'W':0, 'Z':0, 'V':0, 'Y':0, 'X':0 }
+data = { 'W':None, 'Z':None, 'Y':None, 'X':None }
 
 # Interface
 for key in data:
-    while data[key] == 0:
-        print("Set {0}:".format(key))
-        m = re.search('^[0-9]+$', input())
+    while data[key] == None:
+        print("Set {0} (0=false, Other=true):".format(key))
+        m = re.search('^[0-9]$', input())
         if(m is not None):
-            next = int(m.group(0))
-            data[key] = next
+            value = int(m.group(0))
+            if(value == 0):
+                data[key] = False
+            else:
+                data[key] = True
 
 # Clear input
 os.system('cls')
@@ -22,7 +25,7 @@ os.system('cls')
 #  Show data
 print("We are have ... ")
 for key in data:
-    print('{0} -> {1}'.format (key, data[key]))
+    print('{0} = {1}'.format (key, data[key]))
 
 # Get result
 result = (data["W"] and data["Z"]) or not data["Y"] or (not data["X"] is not data["W"])
