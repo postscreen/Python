@@ -10,7 +10,7 @@ N = ""
 
 # Interface
 while N == "":
-    print("Set numeric between 1 and 7:".format(N))
+    print("Set numeric:".format(N))
     m = re.search('^[0-9]+$', input())
     if(m is not None):
         N = int(m.group(0))
