@@ -1,21 +1,34 @@
 # Напишите программу для проверки ложности утверждения
+# (W ⋀ Z) ⋁ ¬Y ⋁ (¬X ≡ ¬W) для всех значений предикат.
 
-N = 0
+import os
+import re
 
-while True:
+os.system('cls')
+data = { 'W':0, 'Z':0, 'V':0, 'Y':0, 'X':0 }
 
-    # Interface
-    print("Set numeric between 1 and 7:")
-    N = int(input())
+# Interface
+for key in data:
+    while data[key] == 0:
+        print("Set {0}:".format(key))
+        m = re.search('^[0-9]+$', input())
+        if(m is not None):
+            next = int(m.group(0))
+            data[key] = next
 
-    # Get string state
-    if N in [6,7]:
-        E = "Yes"
-    else:
-        E = "No"
+# Clear input
+os.system('cls')
 
-    print('{0} -> {1}'.format(N, E))
+#  Show data
+print("We are have ... ")
+for key in data:
+    print('{0} -> {1}'.format (key, data[key]))
 
-    # do while emulation 
-    if N not in [1,7]:
-        break
+# Get result
+result = (data["W"] and data["Z"]) or not data["Y"] or (not data["X"] is not data["W"])
+
+# Show result
+if result:
+    print("It's TRUE")
+else:
+    print("It's FALSE")
