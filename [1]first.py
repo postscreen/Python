@@ -1,25 +1,42 @@
-# Напишите программу, которая принимает на вход цифру, 
-# обозначающую день недели, и проверяет, является ли этот день выходным
+# 1. Напишите программу, которая принимает на вход
+# вещественное число и показывает сумму его цифр.
+# Без работы с методами строк.
 
 import os
 import re
-
-os.system('cls')
-
-N = ""
-
-# Interface
-while N == "":
-    print("Set numeric:".format(N))
-    m = re.search('^[0-9]+$', input())
-    if(m is not None):
-        N = int(m.group(0))
+import math
+from decimal import *
 
 # ... 
 os.system('cls')
 
-# do while emulation 
-if N in [6,7]:
-    print('{0} is weekend'.format(N))
-else:
-    print('{0} isn\'t weekend'.format(N))
+# ...
+L = []
+numeric = ""
+
+# Interface
+while numeric == "":
+    print("Input numeric by float:")
+    baseInput = input()
+    allowString = re.search('^[0-9,.]+$', baseInput)
+    if(allowString is not None):
+        fullInt = re.sub('[.,]', '', allowString.group(0))
+        numeric = int(fullInt)
+
+# ...
+os.system('cls')
+
+# Get full len
+len = (int)(math.log10(numeric) + 1)
+
+# Collect the values of the digits of the numeric
+for index in range(1,len+1):
+    numByIndex = (int)(numeric / math.pow(10, (int)(math.log10(numeric) + 1) - index)) % 10;
+    L.append(numByIndex)
+
+# ... 
+totalSum = sum(L)
+
+# ... 
+print("Input: {0}".format(baseInput))
+print("Total Sum: {0}".format(totalSum))
