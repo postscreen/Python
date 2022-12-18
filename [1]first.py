@@ -20,8 +20,9 @@ while numeric == "":
     baseInput = input()
     allowString = re.search('^[0-9,.]+$', baseInput)
     if(allowString is not None):
-        fullInt = re.sub('[.,]', '', allowString.group(0))
-        numeric = int(fullInt)
+        numeric = int(re.sub('[.,]', '', allowString.group(0)))
+    else:
+        print("Your string isn't math float numeric ... ")
 
 # ...
 os.system('cls')
@@ -40,3 +41,19 @@ totalSum = sum(L)
 # ... 
 print("Input: {0}".format(baseInput))
 print("Total Sum: {0}".format(totalSum))
+
+
+
+
+
+
+# # Function to get int from the float ... By dot moving into the right ... 
+# def intByFloat(floatNumeric):
+#     while True:
+#         d,n = math.modf(floatNumeric * 10)
+#         print(d)
+#         if(d == 0):
+#             break
+#         else:
+#             floatNumeric = floatNumeric * 10
+#     return floatNumeric
