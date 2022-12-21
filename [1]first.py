@@ -43,10 +43,6 @@ print("Input: {0}".format(baseInput))
 print("Total Sum: {0}".format(totalSum))
 
 
-
-
-
-
 # # Function to get int from the float ... By dot moving into the right ... 
 # def intByFloat(floatNumeric):
 #     while True:
