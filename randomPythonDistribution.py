@@ -7,7 +7,7 @@ os.system('cls')
 
 L = {}
 
-for i in range(1,1000000):
+for i in range(1,10000):
     r = random.randint(0, 5)
     if r in L.keys():
         L[r] += 1
@@ -16,3 +16,5 @@ for i in range(1,1000000):
 
 for key in sorted(L.keys()):
     print("{0} -> {1}".format(key, L[key]))
+
+a = input()
