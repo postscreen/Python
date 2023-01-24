@@ -4,9 +4,8 @@ import os
 import time
 from datetime import datetime
 
-os.system('cls')
-
 def give_me_answer(expression):
+    
     # get essences
     composition = re.findall(r'([0-9\.]+)|(i[0-9\.]+)|([\)]{1})|([\(]{1})|([\+\-\*\/]{1})', expression)
 
