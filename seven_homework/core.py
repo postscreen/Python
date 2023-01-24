@@ -1,13 +1,13 @@
 import logging
 import re
-import os
 import time
 from datetime import datetime
 
 def give_me_answer(expression):
-    
+
     # get essences
-    composition = re.findall(r'([0-9\.]+)|(i[0-9\.]+)|([\)]{1})|([\(]{1})|([\+\-\*\/]{1})', expression)
+    composition = re.findall(r'([0-9\.]{0,19})|(i[0-9\.]{0,19})|([\)]{1})|([\(]{1})|([\+\-\*\/]{1})', expression)
+    print(composition)
 
     # Isn't fully ... I skip it and do simple list of them ...
     l = []
@@ -37,8 +37,9 @@ def give_me_answer(expression):
             real += bool(essense) * symbol
         k += 1
 
+    # Result ... 
     l.append("=")
-    l.append(str(real) + "+")
+    l.append(str(real) + " +")
     l.append("i"+str(fantasy))
 
     # time market
